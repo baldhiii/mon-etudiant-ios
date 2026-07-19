@@ -8,7 +8,7 @@ final class Subject {
     var level: String = ""
     var isArchived: Bool = false
 
-    @Relationship(deleteRule: .nullify, inverse: \CourseSession.subject)
+    @Relationship(deleteRule: .cascade, inverse: \CourseSession.subject)
     var sessions: [CourseSession]? = []
 
     @Relationship(deleteRule: .nullify, inverse: \Assignment.subject)
