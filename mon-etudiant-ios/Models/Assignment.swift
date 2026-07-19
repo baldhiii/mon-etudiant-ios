@@ -11,6 +11,7 @@ final class Assignment {
     var isDone: Bool = false
     var note: String = ""
     var reminderType: Int = 0
+    var notificationID: String = ""  // UUID stable pour UNUserNotificationCenter
 
     var subject: Subject?
 
@@ -32,5 +33,6 @@ final class Assignment {
         self.note = note
         self.reminderType = reminderType
         self.subject = subject
+        self.notificationID = UUID().uuidString
     }
 }
