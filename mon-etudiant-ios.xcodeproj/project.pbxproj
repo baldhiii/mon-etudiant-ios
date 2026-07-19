@@ -6,14 +6,32 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		5E9C3A40300D64DD0065990C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E9C39D4300C94BA0065990C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E9C39DB300C94BA0065990C;
+			remoteInfo = "mon-etudiant-ios";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1915091E81B2897E40FA173B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		1A4B055743D2E5BEF747DEA5 /* ModelContainerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModelContainerTests.swift; sourceTree = "<group>"; };
 		5E9C39DC300C94BA0065990C /* mon-etudiant-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mon-etudiant-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E9C3A3C300D64DC0065990C /* MonEtudiantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonEtudiantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5E9C39DE300C94BA0065990C /* mon-etudiant-ios */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "mon-etudiant-ios";
+			sourceTree = "<group>";
+		};
+		5E9C3A3D300D64DC0065990C /* MonEtudiantTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MonEtudiantTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,14 +44,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5E9C3A39300D64DC0065990C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15803A21E5B2937ECA73DFB2 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1915091E81B2897E40FA173B /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		5E9C39D3300C94BA0065990C = {
 			isa = PBXGroup;
 			children = (
 				5E9C39DE300C94BA0065990C /* mon-etudiant-ios */,
+				5E9C3A3D300D64DC0065990C /* MonEtudiantTests */,
 				5E9C39DD300C94BA0065990C /* Products */,
+				778A4784D4A55C2419B40D74 /* Frameworks */,
+				F3FCF4BFD0B1D4C92E69F14D /* mon-etudiant-iosTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -41,8 +77,25 @@
 			isa = PBXGroup;
 			children = (
 				5E9C39DC300C94BA0065990C /* mon-etudiant-ios.app */,
+				5E9C3A3C300D64DC0065990C /* MonEtudiantTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		778A4784D4A55C2419B40D74 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15803A21E5B2937ECA73DFB2 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3FCF4BFD0B1D4C92E69F14D /* mon-etudiant-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				1A4B055743D2E5BEF747DEA5 /* ModelContainerTests.swift */,
+			);
+			path = "mon-etudiant-iosTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -64,11 +117,32 @@
 				5E9C39DE300C94BA0065990C /* mon-etudiant-ios */,
 			);
 			name = "mon-etudiant-ios";
-			packageProductDependencies = (
-			);
 			productName = "mon-etudiant-ios";
 			productReference = 5E9C39DC300C94BA0065990C /* mon-etudiant-ios.app */;
 			productType = "com.apple.product-type.application";
+		};
+		5E9C3A3B300D64DC0065990C /* MonEtudiantTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E9C3A42300D64DD0065990C /* Build configuration list for PBXNativeTarget "MonEtudiantTests" */;
+			buildPhases = (
+				5E9C3A38300D64DC0065990C /* Sources */,
+				5E9C3A39300D64DC0065990C /* Frameworks */,
+				5E9C3A3A300D64DC0065990C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E9C3A41300D64DD0065990C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5E9C3A3D300D64DC0065990C /* MonEtudiantTests */,
+			);
+			name = MonEtudiantTests;
+			packageProductDependencies = (
+			);
+			productName = MonEtudiantTests;
+			productReference = 5E9C3A3C300D64DC0065990C /* MonEtudiantTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -82,6 +156,10 @@
 				TargetAttributes = {
 					5E9C39DB300C94BA0065990C = {
 						CreatedOnToolsVersion = 26.6;
+					};
+					5E9C3A3B300D64DC0065990C = {
+						CreatedOnToolsVersion = 26.6;
+						TestTargetID = 5E9C39DB300C94BA0065990C;
 					};
 				};
 			};
@@ -100,12 +178,20 @@
 			projectRoot = "";
 			targets = (
 				5E9C39DB300C94BA0065990C /* mon-etudiant-ios */,
+				5E9C3A3B300D64DC0065990C /* MonEtudiantTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5E9C39DA300C94BA0065990C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E9C3A3A300D64DC0065990C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +208,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5E9C3A38300D64DC0065990C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E9C3A41300D64DD0065990C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilters = (
+				ios,
+				xros,
+			);
+			target = 5E9C39DB300C94BA0065990C /* mon-etudiant-ios */;
+			targetProxy = 5E9C3A40300D64DD0065990C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5E9C39E5300C94BC0065990C /* Debug */ = {
@@ -329,6 +434,57 @@
 			};
 			name = Release;
 		};
+		5E9C3A43300D64DD0065990C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HZ494Q7N2M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Moustapha.MonEtudiantTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator watchos watchsimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,4,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mon-etudiant-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/mon-etudiant-ios";
+				XROS_DEPLOYMENT_TARGET = 26.5;
+			};
+			name = Debug;
+		};
+		5E9C3A44300D64DD0065990C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HZ494Q7N2M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Moustapha.MonEtudiantTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator watchos watchsimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,4,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mon-etudiant-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/mon-etudiant-ios";
+				VALIDATE_PRODUCT = YES;
+				XROS_DEPLOYMENT_TARGET = 26.5;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -346,6 +502,15 @@
 			buildConfigurations = (
 				5E9C39E8300C94BC0065990C /* Debug */,
 				5E9C39E9300C94BC0065990C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E9C3A42300D64DD0065990C /* Build configuration list for PBXNativeTarget "MonEtudiantTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E9C3A43300D64DD0065990C /* Debug */,
+				5E9C3A44300D64DD0065990C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
