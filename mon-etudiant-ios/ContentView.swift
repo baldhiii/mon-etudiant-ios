@@ -5,35 +5,30 @@ struct ContentView: View {
     @State private var showProfessor = false
 
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
+        ZStack {
             TabView(selection: $selectedTab) {
                 TodayView()
-                    .tabItem {
-                        Label("Aujourd'hui", systemImage: "sun.max.fill")
-                    }
+                    .tabItem { Label("Aujourd'hui", systemImage: "sun.max.fill") }
                     .tag(0)
 
                 AgendaView()
-                    .tabItem {
-                        Label("Agenda", systemImage: "calendar")
-                    }
+                    .tabItem { Label("Agenda", systemImage: "calendar") }
                     .tag(1)
 
                 AssignmentsView()
-                    .tabItem {
-                        Label("Devoirs", systemImage: "checklist")
-                    }
+                    .tabItem { Label("Devoirs", systemImage: "checklist") }
                     .tag(2)
 
                 ReviewsView()
-                    .tabItem {
-                        Label("Révisions", systemImage: "rectangle.stack.fill")
-                    }
+                    .tabItem { Label("Révisions", systemImage: "rectangle.stack.fill") }
                     .tag(3)
             }
 
-            FloatingProfessorButton {
-                showProfessor = true
+            // GeometryReader transparent : fournit la taille au bouton sans bloquer les touches
+            GeometryReader { geo in
+                FloatingProfessorButton(containerSize: geo.size) {
+                    showProfessor = true
+                }
             }
         }
         .fullScreenCover(isPresented: $showProfessor) {
