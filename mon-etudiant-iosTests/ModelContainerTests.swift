@@ -15,7 +15,8 @@ struct ModelContainerTests {
             Deck.self,
             Flashcard.self,
             StudySession.self,
-            UserProfile.self
+            UserProfile.self,
+            Fiche.self
         ])
         let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: schema, configurations: config)

@@ -101,7 +101,7 @@ struct APIErrorTests {
 
 // MARK: - TokenStore (Keychain round-trip)
 
-@Suite("TokenStore — Keychain round-trip")
+@Suite("TokenStore — Keychain round-trip", .serialized)
 struct TokenStoreTests {
 
     @Test("save → load → delete")
