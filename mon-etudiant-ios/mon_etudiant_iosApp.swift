@@ -15,7 +15,8 @@ struct mon_etudiant_iosApp: App {
             Deck.self,
             Flashcard.self,
             StudySession.self,
-            UserProfile.self
+            UserProfile.self,
+            Fiche.self
         ])
         do {
             let config = ModelConfiguration(

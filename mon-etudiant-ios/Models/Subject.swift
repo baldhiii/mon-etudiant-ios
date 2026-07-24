@@ -23,6 +23,9 @@ final class Subject {
     @Relationship(deleteRule: .nullify, inverse: \Exam.subject)
     var exams: [Exam]? = []
 
+    @Relationship(deleteRule: .cascade, inverse: \Fiche.subject)
+    var fiches: [Fiche]? = []
+
     init(name: String = "", colorName: String = "SubjectBlue", level: String = "", isArchived: Bool = false) {
         self.name = name
         self.colorName = colorName
