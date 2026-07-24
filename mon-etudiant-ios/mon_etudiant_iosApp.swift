@@ -4,6 +4,7 @@ import SwiftData
 @main
 struct mon_etudiant_iosApp: App {
     let container: ModelContainer
+    let authService = AuthService()
 
     init() {
         let schema = Schema([
@@ -31,6 +32,7 @@ struct mon_etudiant_iosApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(authService)
         }
         .modelContainer(container)
     }
