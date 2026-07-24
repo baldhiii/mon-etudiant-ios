@@ -84,13 +84,23 @@ enum NotificationService {
 
     private static func fireDate(for assignment: Assignment) -> Date? {
         let cal = Calendar.current
+        let ud  = UserDefaults.standard
         let dueDay = cal.startOfDay(for: assignment.dueDate)
+
+        func hour(_ key: String, fallback: Int) -> Int {
+            ud.object(forKey: key) != nil ? ud.integer(forKey: key) : fallback
+        }
+
         switch assignment.reminderType {
-        case 1: // La veille à 18:00
+        case 1: // La veille — heure configurable (défaut 18:00)
+            let h = hour("reminder_eve_hour",   fallback: 18)
+            let m = hour("reminder_eve_minute", fallback: 0)
             return cal.date(byAdding: .day, value: -1, to: dueDay)
-                .flatMap { cal.date(bySettingHour: 18, minute: 0, second: 0, of: $0) }
-        case 2: // Le jour J à 07:00
-            return cal.date(bySettingHour: 7, minute: 0, second: 0, of: dueDay)
+                .flatMap { cal.date(bySettingHour: h, minute: m, second: 0, of: $0) }
+        case 2: // Le jour J — heure configurable (défaut 07:00)
+            let h = hour("reminder_dday_hour",   fallback: 7)
+            let m = hour("reminder_dday_minute", fallback: 0)
+            return cal.date(bySettingHour: h, minute: m, second: 0, of: dueDay)
         default:
             return nil
         }
