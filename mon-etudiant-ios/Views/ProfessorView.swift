@@ -7,35 +7,18 @@ struct ProfessorView: View {
 
     var body: some View {
         if authService.isAuthenticated {
-            chatPlaceholder
+            NavigationStack {
+                ChatView()
+                    .navigationTitle("Professeur")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button("Fermer") { dismiss() }
+                        }
+                    }
+            }
         } else {
             ProfessorSignInView()
-        }
-    }
-
-    // Placeholder conservé — T7 implémentera le vrai chat SSE
-    private var chatPlaceholder: some View {
-        NavigationStack {
-            VStack(spacing: 16) {
-                Image(systemName: "sparkles")
-                    .font(.system(size: 56))
-                    .foregroundStyle(Color.accentColor)
-                Text("Ton Professeur est là")
-                    .font(.title2).bold()
-                Text("Pose une question, il te guide pas à pas, sans donner la réponse toute faite.")
-                    .font(.body)
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 32)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .navigationTitle("Professeur")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Fermer") { dismiss() }
-                }
-            }
         }
     }
 }
@@ -117,12 +100,9 @@ private struct ProfessorSignInView: View {
               let tokenData = credential.identityToken,
               let identityToken = String(data: tokenData, encoding: .utf8)
         else {
-            if case .failure = result {
-                errorMessage = "Connexion annulée ou échouée."
-            }
+            if case .failure = result { errorMessage = "Connexion annulée ou échouée." }
             return
         }
-
         isSigningIn = true
         Task {
             do {

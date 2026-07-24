@@ -6,7 +6,6 @@ struct SubjectsView: View {
     @Query(sort: \Subject.name) private var subjects: [Subject]
 
     @State private var showNewSheet = false
-    @State private var editSubject: Subject?
     @State private var deleteTarget: Subject?
 
     var body: some View {
@@ -21,16 +20,18 @@ struct SubjectsView: View {
             } else {
                 List {
                     ForEach(subjects) { subject in
-                        SubjectRow(subject: subject)
-                            .contentShape(Rectangle())
-                            .onTapGesture { editSubject = subject }
-                            .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                                Button(role: .destructive) {
-                                    deleteTarget = subject
-                                } label: {
-                                    Label("Supprimer", systemImage: "trash")
-                                }
+                        NavigationLink {
+                            SubjectDetailView(subject: subject)
+                        } label: {
+                            SubjectRow(subject: subject)
+                        }
+                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                            Button(role: .destructive) {
+                                deleteTarget = subject
+                            } label: {
+                                Label("Supprimer", systemImage: "trash")
                             }
+                        }
                     }
                 }
                 .listStyle(.insetGrouped)
@@ -48,9 +49,6 @@ struct SubjectsView: View {
         .sheet(isPresented: $showNewSheet) {
             SubjectFormView(subject: nil)
         }
-        .sheet(item: $editSubject) { s in
-            SubjectFormView(subject: s)
-        }
         .confirmationDialog(
             "Supprimer « \(deleteTarget?.name ?? "") » ?",
             isPresented: Binding(
@@ -64,7 +62,7 @@ struct SubjectsView: View {
                 deleteTarget = nil
             }
         } message: {
-            Text("Les cours liés seront également supprimés.")
+            Text("Les cours et fiches liés seront également supprimés.")
         }
     }
 }
@@ -78,10 +76,6 @@ private struct SubjectRow: View {
                 .frame(width: 10, height: 10)
             Text(subject.name)
                 .font(.body)
-            Spacer()
-            Image(systemName: "chevron.right")
-                .font(.caption)
-                .foregroundStyle(Color(.tertiaryLabel))
         }
     }
 }

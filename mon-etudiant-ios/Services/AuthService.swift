@@ -13,13 +13,13 @@ final class AuthService {
 
     /// Called after a successful Sign in with Apple → POST /auth/apple round-trip.
     func didSignIn(token: String) {
-        try? TokenStore.save(token)
+        _ = try? TokenStore.save(token)
         accessToken = token
     }
 
     /// DEV-mode shortcut: paste a forged token without going through Apple.
     func setToken(_ token: String) {
-        try? TokenStore.save(token)
+        _ = try? TokenStore.save(token)
         accessToken = token
     }
 
